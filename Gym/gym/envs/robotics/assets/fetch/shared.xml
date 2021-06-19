@@ -1,0 +1,88 @@
+<mujoco>
+    <asset>
+        <texture type="skybox" builtin="gradient" rgb1="0.4 0.5 0.6" rgb2="0.1 0.3 0.4" width="32" height="32"></texture>
+        <texture name="texture_block" file="block.png" gridsize="3 4" gridlayout=".U..LFRB.D.."></texture>
+
+        <material name="floor_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"></material>
+        <material name="table_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.93 0.93 0.93 1"></material>
+        <material name="block_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"></material>
+        <material name="puck_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"></material>
+        <material name="robot0:geomMat" shininess="0.03" specular="0.4"></material>
+        <material name="robot0:gripper_finger_mat" shininess="0.03" specular="0.4" reflectance="0"></material>
+        <material name="robot0:gripper_mat" shininess="0.03" specular="0.4" reflectance="0"></material>
+        <material name="robot0:arm_mat" shininess="0.03" specular="0.4" reflectance="0"></material>
+        <material name="robot0:head_mat" shininess="0.03" specular="0.4" reflectance="0"></material>
+        <material name="robot0:torso_mat" shininess="0.03" specular="0.4" reflectance="0"></material>
+        <material name="robot0:base_mat" shininess="0.03" specular="0.4" reflectance="0"></material>
+        
+        <mesh file="base_link_collision.stl" name="robot0:base_link"></mesh>
+        <mesh file="bellows_link_collision.stl" name="robot0:bellows_link"></mesh>
+        <mesh file="elbow_flex_link_collision.stl" name="robot0:elbow_flex_link"></mesh>
+        <mesh file="estop_link.stl" name="robot0:estop_link"></mesh>
+        <mesh file="forearm_roll_link_collision.stl" name="robot0:forearm_roll_link"></mesh>
+        <mesh file="gripper_link.stl" name="robot0:gripper_link"></mesh>
+        <mesh file="head_pan_link_collision.stl" name="robot0:head_pan_link"></mesh>
+        <mesh file="head_tilt_link_collision.stl" name="robot0:head_tilt_link"></mesh>
+        <mesh file="l_wheel_link_collision.stl" name="robot0:l_wheel_link"></mesh>
+        <mesh file="laser_link.stl" name="robot0:laser_link"></mesh>
+        <mesh file="r_wheel_link_collision.stl" name="robot0:r_wheel_link"></mesh>
+        <mesh file="torso_lift_link_collision.stl" name="robot0:torso_lift_link"></mesh>
+        <mesh file="shoulder_pan_link_collision.stl" name="robot0:shoulder_pan_link"></mesh>
+        <mesh file="shoulder_lift_link_collision.stl" name="robot0:shoulder_lift_link"></mesh>
+        <mesh file="upperarm_roll_link_collision.stl" name="robot0:upperarm_roll_link"></mesh>
+        <mesh file="wrist_flex_link_collision.stl" name="robot0:wrist_flex_link"></mesh>
+        <mesh file="wrist_roll_link_collision.stl" name="robot0:wrist_roll_link"></mesh>
+        <mesh file="torso_fixed_link.stl" name="robot0:torso_fixed_link"></mesh>
+    </asset>
+    
+    <contact>
+        <exclude body1="robot0:r_gripper_finger_link" body2="robot0:l_gripper_finger_link"></exclude>
+        <exclude body1="robot0:torso_lift_link" body2="robot0:torso_fixed_link"></exclude>
+        <exclude body1="robot0:torso_lift_link" body2="robot0:shoulder_pan_link"></exclude>
+        <exclude body1="table0" body2="robot0:r_gripper_finger_sensor"></exclude>
+        <exclude body1="table0" body2="robot0:l_gripper_finger_sensor"></exclude>
+    </contact>
+    
+    <default>
+        <default class="robot0:fetch">
+            <geom margin="0.001" material="robot0:geomMat" rgba="1 1 1 1" solimp="0.99 0.99 0.01" solref="0.01 1" type="mesh" user="0"></geom>
+            <joint armature="1" damping="50" frictionloss="0" stiffness="0"></joint>
+
+            <default class="robot0:fetchGripper">
+                <geom condim="4" margin="0.001" type="box" user="0" rgba="0.356 0.361 0.376 1.0"></geom>
+                <joint armature="100" damping="1000" limited="true" solimplimit="0.99 0.999 0.01" solreflimit="0.01 1" type="slide"></joint>
+            </default>
+
+            <default class="robot0:grey">
+                <geom rgba="0.356 0.361 0.376 1.0"></geom>
+            </default>
+            <default class="robot0:blue">
+                <geom rgba="0.086 0.506 0.767 1.0"></geom>
+            </default>
+        </default>
+    </default>
+
+    <sensor>
+        <jointpos name="robot0:Sjp_shoulder_pan" joint="robot0:shoulder_pan_joint"></jointpos>
+        <jointpos name="robot0:Sjp_shoulder_lift" joint="robot0:shoulder_lift_joint"></jointpos>
+        <jointpos name="robot0:Sjp_upperarm_roll" joint="robot0:upperarm_roll_joint"></jointpos>
+        <jointpos name="robot0:Sjp_elbow_elbow_flex" joint="robot0:elbow_flex_joint"></jointpos>
+        <jointpos name="robot0:Sjp_forearm_roll" joint="robot0:forearm_roll_joint"></jointpos>
+        <jointpos name="robot0:Sjp_wrist_flex" joint="robot0:wrist_flex_joint"></jointpos>
+        <jointpos name="robot0:Sjp_wrist_roll" joint="robot0:wrist_roll_joint"></jointpos>
+        <jointpos name="robot0:Sjp_l_gripper_finger" joint="robot0:l_gripper_finger_joint"></jointpos>
+        <jointpos name="robot0:Sjp_r_gripper_finger" joint="robot0:r_gripper_finger_joint"></jointpos>
+        <touch name="force_sensor_r" site="force_sensor_r"></touch>
+        <touch name="force_sensor_l" site="force_sensor_l"></touch>
+    </sensor>
+
+    <actuator>
+        <position name="robot0:act_shoulder_pan" user="2026" joint="robot0:shoulder_pan_joint" ctrlrange="-0.4 0.4" kp="300"></position>
+        <position name="robot0:act_shoulder_lift" user="2026" joint="robot0:shoulder_lift_joint" ctrlrange="-1.221 0" kp="300"></position>
+        <position name="robot0:act_upperarm_roll" user="2026" joint="robot0:upperarm_roll_joint" ctrlrange="-0.5 0.5" kp="300"></position>
+        <position name="robot0:act_elbow_flex" user="2026" joint="robot0:elbow_flex_joint" ctrlrange="0.0 2.0" kp="300"></position>
+        <position name="robot0:act_forearm_roll" user="2026" joint="robot0:forearm_roll_joint" ctrlrange="-0.5 0.5" kp="300"></position>
+        <position name="robot0:act_wrist_flex" user="2026" joint="robot0:wrist_flex_joint" ctrlrange="0.0 1.5" kp="300"></position>
+        <position name="robot0:act_wrist_roll" user="2026" joint="robot0:wrist_roll_joint" ctrlrange="-0.8 0.8" kp="300"></position>
+    </actuator>
+</mujoco>

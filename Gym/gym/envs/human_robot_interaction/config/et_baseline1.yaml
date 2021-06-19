@@ -1,0 +1,124 @@
+FINGERTIP_SITE_NAMES:
+- robot1:S_palm
+- robot1:S_thtip
+- robot1:S_fftip
+- robot1:S_mftip
+- robot1:S_rftip
+- robot1:S_lftip
+FORCE_GOALS:
+- 1
+ROBOT_POS_SITES:
+- robot0:palm
+ROBOT0_CONTROL_JOINTS:
+- robot0:shoulder_pan_joint
+- robot0:shoulder_lift_joint
+- robot0:upperarm_roll_joint
+- robot0:elbow_flex_joint
+- robot0:WRJ1
+- robot0:WRJ0
+- robot0:FFJ3
+- robot0:FFJ2
+- robot0:FFJ1
+- robot0:FFJ0
+- robot0:MFJ3
+- robot0:MFJ2
+- robot0:MFJ1
+- robot0:MFJ0
+- robot0:RFJ3
+- robot0:RFJ2
+- robot0:RFJ1
+- robot0:RFJ0
+- robot0:LFJ4
+- robot0:LFJ3
+- robot0:LFJ2
+- robot0:LFJ1
+- robot0:LFJ0
+- robot0:THJ4
+- robot0:THJ3
+- robot0:THJ2
+- robot0:THJ1
+- robot0:THJ0
+ROBOT0_JOINT_NAMES:
+- robot0:WRJ1
+- robot0:WRJ0
+- robot0:THJ4
+- robot0:THJ3
+- robot0:THJ2
+- robot0:THJ1
+- robot0:THJ0
+- robot0:FFJ3
+- robot0:FFJ2
+- robot0:FFJ1
+- robot0:MFJ3
+- robot0:MFJ2
+- robot0:MFJ1
+- robot0:LFJ4
+- robot0:LFJ3
+- robot0:LFJ2
+- robot0:LFJ1
+- robot0:RFJ3
+- robot0:RFJ2
+- robot0:RFJ1
+ROBOT1_BODY_NAMES:
+- robot1:palm
+- robot1:ffknuckle
+- robot1:ffproximal
+- robot1:ffmiddle
+- robot1:ffdistal
+- robot1:mfknuckle
+- robot1:mfproximal
+- robot1:mfmiddle
+- robot1:mfdistal
+- robot1:lfknuckle
+- robot1:lfproximal
+- robot1:lfmiddle
+- robot1:lfdistal
+- robot1:rfknuckle
+- robot1:rfproximal
+- robot1:rfmiddle
+- robot1:rfdistal
+- robot1:thbase
+- robot1:thproximal
+- robot1:thmiddle
+- robot1:thdistal
+ROBOT1_JOINT_NAMES:
+- robot1:WRJ1
+- robot1:WRJ0
+- robot1:THJ4
+- robot1:THJ3
+- robot1:THJ2
+- robot1:THJ1
+- robot1:THJ0
+- robot1:FFJ3
+- robot1:FFJ2
+- robot1:FFJ1
+- robot1:MFJ3
+- robot1:MFJ2
+- robot1:MFJ1
+- robot1:LFJ4
+- robot1:LFJ3
+- robot1:LFJ2
+- robot1:LFJ1
+- robot1:RFJ3
+- robot1:RFJ2
+- robot1:RFJ1
+ROBOT_SITES:
+- robot0:S_thtip
+- robot0:S_fftip
+- robot0:S_mftip
+- robot0:S_rftip
+- robot0:S_lftip
+TOUCH_SENSORS:
+- robot0:ST_Tch_fftip
+INTERACTION_TYPE:
+- et
+W_pos:
+- 4
+W_ang:
+- 0.5
+W_f:
+- 0.2
+W_iang:
+- 0.0
+W_ipos:
+- 0.0
